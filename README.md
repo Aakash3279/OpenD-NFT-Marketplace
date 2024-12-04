@@ -1,3 +1,130 @@
+
+# OpenD NFT Marketplace  
+
+OpenD is a decentralized application (dApp) for minting, listing, and trading NFTs (Non-Fungible Tokens) on the Internet Computer blockchain. This project showcases the core features of an NFT marketplace, including minting NFTs, listing them for sale, and transferring ownership.  
+
+![OpenD NFT Marketplace Screenshot](./src/opend_assets/assets/Home%20Page.png)
+
+
+## Table of Contents  
+
+- [Introduction](#introduction)  
+- [Features](#features)  
+- [Technologies Used](#technologies-used)  
+- [Getting Started](#getting-started)  
+- [Usage](#usage)  
+- [License](#license)  
+
+---
+
+## Introduction  
+
+This project demonstrates the functionalities of an NFT marketplace. The dApp is built on the Internet Computer platform and allows users to:  
+
+- Mint NFTs with custom names and image data.  
+- List NFTs for sale with specified prices.  
+- Transfer ownership of NFTs between users or to the marketplace.  
+
+---
+
+## Features  
+
+- **Minting NFTs**: Users can create NFTs by uploading image data and specifying names.  
+- **Listing NFTs**: NFTs can be listed on the marketplace with a price.  
+- **Ownership Transfer**: Ownership of NFTs can be transferred securely on the blockchain.  
+- **Integration with Internet Computer**: The backend is implemented using the Internet Computer's Motoko language.  
+
+---
+
+## Technologies Used  
+
+- **Frontend**: React.js with JSX  
+- **Backend**:  
+  - Internet Computer (Motoko for canister implementation)  
+  - Cycles for transaction execution  
+  - HashMap and List libraries from Motoko for data management  
+- **Agent Library**: `@dfinity/agent` for canister communication  
+- **Blockchain**: Internet Computer blockchain  
+
+---
+
+## Getting Started  
+
+### Prerequisites  
+
+- Node.js installed  
+- dfx (Dfinity SDK) installed  
+- Local development environment for the Internet Computer  
+
+### Installation  
+
+1. Clone the repository.  
+   ```bash  
+   git clone <repository-url>  
+   cd <repository-folder>  
+   ```  
+
+2. Install dependencies.  
+   ```bash  
+   npm install  
+   ```  
+
+3. Start the local Internet Computer replica.  
+   ```bash  
+   dfx start --clean  
+   ```  
+
+4. Deploy the canisters.  
+   ```bash  
+   dfx deploy  
+   ```  
+
+5. Start the development server.  
+   ```bash  
+   npm start  
+   ```  
+
+6. Access the application in your browser.  
+   ```  
+   http://localhost:8080  
+   ```  
+
+---
+
+## Usage  
+
+### Mint an NFT  
+
+1. Navigate to the minting page.  
+2. Provide the name and image data for the NFT.  
+3. Confirm to mint the NFT.  
+
+### List an NFT  
+
+1. Navigate to your owned NFTs.  
+2. Select an NFT to list.  
+3. Specify the price and confirm the listing.  
+
+### Transfer Ownership  
+
+1. Mint an NFT using the command:  
+   ```bash  
+   dfx canister call opend mint '(vec {<image-bytes>}, "<name>")'  
+   ```  
+
+2. List the NFT:  
+   ```bash  
+   dfx canister call opend listItem '(principal "<NFT_CANISTER_ID>", <price>)'  
+   ```  
+
+3. Transfer ownership to the OpenD canister:  
+   ```bash  
+   dfx canister call <NFT_CANISTER_ID> transferOwnership '(principal "<OPEND_CANISTER_ID>", true)'  
+   ```  
+
+
+
+
 Copyright 2022 London App Brewery LTD (www.appbrewery.com)
 
 The code in this tutorial project is licended under the Apache License, Version 2.0 (the "License");
@@ -131,3 +258,6 @@ dfx canister call <REPLACE WITH NFT CANISTER ID> transferOwnership '(principal "
 ```
 const dangPrincipal = Principal.fromText("<REPLACE WITH TOKEN CANISTER ID>");
 ```
+# Screenshots
+![OpenD NFT Marketplace Screenshot](./src/opend_assets/assets/Import%20files.png)
+![OpenD NFT Marketplace Screenshot](./src/opend_assets/assets/My%20NFTs.png)
