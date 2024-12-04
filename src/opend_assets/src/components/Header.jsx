@@ -34,11 +34,7 @@ function Header() {
           </Link>
           <div className="header-empty-6"></div>
           <div className="header-space-8"></div>
-          <button className="ButtonBase-root Button-root Button-text header-navButtons-3">
-            <Link to="/discover">
-                Discover
-            </Link>
-          </button>
+          
           <button className="ButtonBase-root Button-root Button-text header-navButtons-3">
            <Link to="/minter">
                 Minter
@@ -55,9 +51,6 @@ function Header() {
     <Switch>
       <Route exact path="/">
         <img className="bottom-space" src={homeImage} />
-      </Route>
-      <Route path ="/discover">
-          <h1>Discover</h1>
       </Route>
       <Route path="/minter">
        <Minter/>
